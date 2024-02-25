@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Logs
+*.log
+
+# Temporary and generated files
+.nyc_output/
+coverage/
+pids/
+tmp/
+
+# Environment variables
+.env
+.env.development
+.env.test
+.env.production
+
+# Testing artifacts
+*.spec.js
+.snapshots/
+
+# IDE and editor files
+.idea/
+.vscode/
+.editorconfig
+
+# Build output
+build/
