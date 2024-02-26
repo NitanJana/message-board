@@ -18,9 +18,11 @@ const App = () => {
     setLoading(true);
     const fetchData = async () => {
       try {
-        const response = await apiInstance.get('/api/get');
-        setMessages(response.data);
-        setLoading(false);
+        setTimeout(async () => {
+          const response = await apiInstance.get('/api/get');
+          setMessages(response.data);
+          setLoading(false);
+        }, 2000);
       } catch (error) {
         console.error('Error fetching messages:', error);
       }
