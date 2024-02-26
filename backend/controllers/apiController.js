@@ -13,8 +13,12 @@ export const getMessages = async (req, res) => {
 // save a new message to the database
 export const saveMessage = async (req, res) => {
   try {
-    const { author, message } = req.body;
-    const savedMessage = await messageModel.create({ author, message });
+    const { author, message, sendDate } = req.body;
+    const savedMessage = await messageModel.create({
+      author,
+      message,
+      sendDate,
+    });
     console.log("Saved successfully");
     res.status(201).send(savedMessage);
   } catch (error) {

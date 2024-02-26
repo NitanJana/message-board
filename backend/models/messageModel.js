@@ -9,6 +9,10 @@ const messageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  sendDate: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 export default mongoose.model("message", messageSchema);
