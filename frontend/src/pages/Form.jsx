@@ -2,6 +2,12 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import InputGroup from '../components/InputGroup';
+import axios from 'axios';
+import { backendURI } from '../utils/constants';
+
+const apiInstance = axios.create({
+  baseURL: backendURI,
+});
 
 const Form = () => {
   const navigate = useNavigate();
@@ -13,15 +19,20 @@ const Form = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('/api/save', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await apiInstance.post(
+        '/api/save',
+        {
+          author,
+          message,
         },
-        body: JSON.stringify({ author, message }),
-      });
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      );
 
-      if (response.ok) {
+      if (response.status === 201) {
         console.log('Message saved successfully');
         navigate('/');
       } else {

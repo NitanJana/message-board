@@ -1,19 +1,27 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Footer from '../components/Footer';
-import { baseURL } from '../utils/constants';
+import { backendURI } from '../utils/constants';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
+
+const apiInstance = axios.create({
+  baseURL: backendURI,
+});
 
 const App = () => {
   const [messages, setMessages] = useState([]);
   useEffect(() => {
-    axios
-      .get('/api/get', { baseURL })
-      .then((res) => {
-        setMessages(res.data);
-      })
-      .catch((err) => console.log(err));
+    const fetchData = async () => {
+      try {
+        const response = await apiInstance.get('/api/get');
+        setMessages(response.data);
+      } catch (error) {
+        console.error('Error fetching messages:', error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
