@@ -33,10 +33,13 @@ const App = () => {
           <Button>Add message</Button>
         </Link>
 
-        <div className="grid h-full w-full grid-cols-[repeat(auto-fit,minmax(10rem,1fr))] items-start gap-8 p-8 sm:grid-cols-[repeat(auto-fit,minmax(20rem,1fr))]">
+        <div className="grid h-full w-full grid-cols-[repeat(auto-fit,minmax(20rem,1fr))] items-start gap-8 p-8">
           {messages?.map((message) => (
-            <div key={message._id} className=" ml-10 flex flex-col border-l-2 p-8 pt-0 sm:ml-20">
-              <p className="text-xl font-bold">{message.author}</p>
+            <div key={message._id} className=" ml-10 flex flex-col gap-2 border-l-2 p-8 pt-0 sm:ml-20">
+              <div className="gap-1">
+                <p className="text-xl font-bold">{message.author}</p>
+                <p className="text-xs ">({message.sendDate})</p>
+              </div>
               <p className="text-md">{message.message}</p>
             </div>
           ))}
