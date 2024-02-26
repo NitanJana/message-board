@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 const InputGroup = ({ labelText, name, id, placeholder, value, onChange }) => {
   return (
     <>
-      <label htmlFor={id} className="justify-self-start text-2xl font-medium text-primary-cream">
+      <label htmlFor={id} className="justify-self-start text-2xl font-semibold text-primary-cream">
         {labelText}
       </label>
       <textarea

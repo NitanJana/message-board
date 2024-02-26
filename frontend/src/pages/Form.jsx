@@ -14,11 +14,13 @@ const Form = () => {
 
   const [author, setAuthor] = useState('');
   const [message, setMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
+      setIsSubmitting(true);
       const response = await apiInstance.post(
         '/api/save',
         {
@@ -40,6 +42,8 @@ const Form = () => {
       }
     } catch (error) {
       console.error('Error saving message:', error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -64,7 +68,15 @@ const Form = () => {
           onChange={(e) => setMessage(e.target.value)}
         />
 
-        <Button type="submit">Submit</Button>
+        <Button type="submit">
+          {isSubmitting ? (
+            <div className="flex gap-2">
+              Submitting <img src="/submit.svg" alt="" className="animate-spin" />
+            </div>
+          ) : (
+            'Submit'
+          )}
+        </Button>
       </form>
     </div>
   );
