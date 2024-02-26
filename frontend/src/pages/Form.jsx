@@ -15,6 +15,13 @@ const Form = () => {
   const [author, setAuthor] = useState('');
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const dateFormat = (date) =>
+    new Date(date).toLocaleDateString('en-us', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +33,7 @@ const Form = () => {
         {
           author,
           message,
-          sendDate: new Date(),
+          sendDate: dateFormat(new Date()),
         },
         {
           headers: {
