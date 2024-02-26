@@ -3,3 +3,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: rgb(180, 176, 176);
+  border: 4px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;
+}
+
+textarea::-webkit-scrollbar {
+  width: 12px;
+}
+
+textarea:hover::-webkit-scrollbar {
+  width: 14px;
+}
