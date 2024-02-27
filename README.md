@@ -89,7 +89,7 @@ Run the development server with the following command:
 
 ```bash
 # In the backend directory
-npm run Start:dev
+npm run dev
 
 # In the frontend directory
 npm run dev
