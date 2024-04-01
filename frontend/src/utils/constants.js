@@ -1,1 +1,1 @@
-export const backendURI = 'https://message-board-backend-nitan.vercel.app/';
+export const backendURI = 'https://message-board-backend-nitan.vercel.app';

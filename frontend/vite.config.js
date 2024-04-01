@@ -6,7 +6,7 @@ import { backendURI } from './src/utils/constants';
 export default defineConfig({
   server: {
     proxy: {
-      '/api': { target: backendURI, changeOrigin: true },
+      '/api': backendURI,
     },
   },
   plugins: [react()],
